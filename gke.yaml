@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ml-kube-deployment
+  name: ml-kube-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-kube-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ml-kube-deployment
+    spec:
+      containers:
+      - image: gcr.io/$PROJECT_ID/ml-kube-deployment
+        name: ml-kube-deployment
+        resources:
+          requests:
+            memory: "4G"
+status: {}
